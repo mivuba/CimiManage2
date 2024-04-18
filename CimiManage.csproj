@@ -1,0 +1,655 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E5AE1E69-BCE9-4F59-A40F-F959ACC23E06}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CimiManage</RootNamespace>
+    <AssemblyName>CimiManage</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44334</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>packages\Microsoft.AspNet.Webpages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="file\commande.aspx" />
+    <Content Include="file\depense.aspx" />
+    <Content Include="file\detailcommande.aspx" />
+    <Content Include="file\detail_depense.aspx" />
+    <Content Include="file\droit_menu.aspx" />
+    <Content Include="file\intitule_produit.aspx" />
+    <Content Include="file\listcommande.aspx" />
+    <Content Include="file\listdepense.aspx" />
+    <Content Include="file\listdetail_depense.aspx" />
+    <Content Include="file\listdroit_menu.aspx" />
+    <Content Include="file\listepompe_funeble.aspx" />
+    <Content Include="file\listintitule_produit.aspx" />
+    <Content Include="file\listmenu.aspx" />
+    <Content Include="file\listpersonne.aspx" />
+    <Content Include="file\listrole.aspx" />
+    <Content Include="file\listservice.aspx" />
+    <Content Include="file\listtype_depense.aspx" />
+    <Content Include="file\listutilisateur.aspx" />
+    <Content Include="file\menu.aspx" />
+    <Content Include="file\personne.aspx" />
+    <Content Include="file\pompe_funeble.aspx" />
+    <Content Include="file\role.aspx" />
+    <Content Include="file\service.aspx" />
+    <Content Include="file\type_depense.aspx" />
+    <Content Include="file\utilisateur.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\cimimanage.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>cimimanage.Context.cs</LastGenOutput>
+      <DependentUpon>cimimanage.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\cimimanage.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>cimimanage.edmx</DependentUpon>
+      <LastGenOutput>cimimanage.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\cimimanage.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>cimimanage.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\cimimanage.edmx.diagram">
+      <DependentUpon>cimimanage.edmx</DependentUpon>
+    </Content>
+    <Content Include="file\cimimanage.Master" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="classe\commande_classe.cs" />
+    <Compile Include="classe\depense_classe.cs" />
+    <Compile Include="classe\detail_com_classe.cs" />
+    <Compile Include="classe\detail_depense_classe.cs" />
+    <Compile Include="classe\droit_menu_classe.cs" />
+    <Compile Include="classe\intitule_produit_classe.cs" />
+    <Compile Include="classe\menu_classe.cs" />
+    <Compile Include="classe\personnes_classe.cs" />
+    <Compile Include="classe\pompe_funeble_classe.cs" />
+    <Compile Include="classe\role_classe.cs" />
+    <Compile Include="classe\service_classe.cs" />
+    <Compile Include="classe\type_depense_classe.cs" />
+    <Compile Include="classe\utilisateur_classe.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\CommandeImp.cs" />
+    <Compile Include="Controllers\DepenseImp.cs" />
+    <Compile Include="Controllers\Detail_comImp.cs" />
+    <Compile Include="Controllers\Detail_depenseImp.cs" />
+    <Compile Include="Controllers\Droit_menuImp.cs" />
+    <Compile Include="Controllers\ICommande.cs" />
+    <Compile Include="Controllers\IDepense.cs" />
+    <Compile Include="Controllers\IDetail_com.cs" />
+    <Compile Include="Controllers\IDetail_depense.cs" />
+    <Compile Include="Controllers\IDroit_menu.cs" />
+    <Compile Include="Controllers\IIntitule_produit.cs" />
+    <Compile Include="Controllers\IMenu.cs" />
+    <Compile Include="Controllers\Intitule_produitImp.cs" />
+    <Compile Include="Controllers\IPersonnes.cs" />
+    <Compile Include="Controllers\Ipompe_funeble.cs" />
+    <Compile Include="Controllers\Irole.cs" />
+    <Compile Include="Controllers\IService.cs" />
+    <Compile Include="Controllers\IType_depense.cs" />
+    <Compile Include="Controllers\IUtilisateur.cs" />
+    <Compile Include="Controllers\MenuImp.cs" />
+    <Compile Include="Controllers\PersonnesImp.cs" />
+    <Compile Include="Controllers\pompe_funebleImp.cs" />
+    <Compile Include="Controllers\RoleImp.cs" />
+    <Compile Include="Controllers\ServiceImp.cs" />
+    <Compile Include="Controllers\Type_depenseImp.cs" />
+    <Compile Include="Controllers\UtilisateurImp.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\cimimanage.Master.cs">
+      <DependentUpon>cimimanage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\cimimanage.Master.designer.cs">
+      <DependentUpon>cimimanage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="file\commande.aspx.cs">
+      <DependentUpon>commande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\commande.aspx.designer.cs">
+      <DependentUpon>commande.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\depense.aspx.cs">
+      <DependentUpon>depense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\depense.aspx.designer.cs">
+      <DependentUpon>depense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\detailcommande.aspx.cs">
+      <DependentUpon>detailcommande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\detailcommande.aspx.designer.cs">
+      <DependentUpon>detailcommande.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\detail_depense.aspx.cs">
+      <DependentUpon>detail_depense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\detail_depense.aspx.designer.cs">
+      <DependentUpon>detail_depense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\droit_menu.aspx.cs">
+      <DependentUpon>droit_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\droit_menu.aspx.designer.cs">
+      <DependentUpon>droit_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\intitule_produit.aspx.cs">
+      <DependentUpon>intitule_produit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\intitule_produit.aspx.designer.cs">
+      <DependentUpon>intitule_produit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listcommande.aspx.cs">
+      <DependentUpon>listcommande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listcommande.aspx.designer.cs">
+      <DependentUpon>listcommande.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listdepense.aspx.cs">
+      <DependentUpon>listdepense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listdepense.aspx.designer.cs">
+      <DependentUpon>listdepense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listdetail_depense.aspx.cs">
+      <DependentUpon>listdetail_depense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listdetail_depense.aspx.designer.cs">
+      <DependentUpon>listdetail_depense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listdroit_menu.aspx.cs">
+      <DependentUpon>listdroit_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listdroit_menu.aspx.designer.cs">
+      <DependentUpon>listdroit_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listepompe_funeble.aspx.cs">
+      <DependentUpon>listepompe_funeble.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listepompe_funeble.aspx.designer.cs">
+      <DependentUpon>listepompe_funeble.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listintitule_produit.aspx.cs">
+      <DependentUpon>listintitule_produit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listintitule_produit.aspx.designer.cs">
+      <DependentUpon>listintitule_produit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listmenu.aspx.cs">
+      <DependentUpon>listmenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listmenu.aspx.designer.cs">
+      <DependentUpon>listmenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listpersonne.aspx.cs">
+      <DependentUpon>listpersonne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listpersonne.aspx.designer.cs">
+      <DependentUpon>listpersonne.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listrole.aspx.cs">
+      <DependentUpon>listrole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listrole.aspx.designer.cs">
+      <DependentUpon>listrole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listservice.aspx.cs">
+      <DependentUpon>listservice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listservice.aspx.designer.cs">
+      <DependentUpon>listservice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listtype_depense.aspx.cs">
+      <DependentUpon>listtype_depense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listtype_depense.aspx.designer.cs">
+      <DependentUpon>listtype_depense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listutilisateur.aspx.cs">
+      <DependentUpon>listutilisateur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listutilisateur.aspx.designer.cs">
+      <DependentUpon>listutilisateur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\personne.aspx.cs">
+      <DependentUpon>personne.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\personne.aspx.designer.cs">
+      <DependentUpon>personne.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\pompe_funeble.aspx.cs">
+      <DependentUpon>pompe_funeble.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\pompe_funeble.aspx.designer.cs">
+      <DependentUpon>pompe_funeble.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\role.aspx.cs">
+      <DependentUpon>role.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\role.aspx.designer.cs">
+      <DependentUpon>role.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\service.aspx.cs">
+      <DependentUpon>service.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\service.aspx.designer.cs">
+      <DependentUpon>service.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\type_depense.aspx.cs">
+      <DependentUpon>type_depense.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\type_depense.aspx.designer.cs">
+      <DependentUpon>type_depense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\utilisateur.aspx.cs">
+      <DependentUpon>utilisateur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\utilisateur.aspx.designer.cs">
+      <DependentUpon>utilisateur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cimimanage.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cimimanage.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cimimanage.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cimimanage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cimimanage.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\commande.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\depense.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detail_com.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\detail_depense.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\droit_menu.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\intitule_produit.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\menu.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\personnes.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pompe_funeble.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\role.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\service.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\type_depense.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\utilisateur.cs">
+      <DependentUpon>cimimanage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50600</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44334/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

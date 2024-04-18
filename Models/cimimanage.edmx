@@ -1,0 +1,1057 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="cimimanageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="id_com" />
+          </Key>
+          <Property Name="id_com" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_ut" Type="int" Nullable="false" />
+          <Property Name="id_service" Type="int" Nullable="false" />
+          <Property Name="code_com" Type="varchar" MaxLength="100" />
+          <Property Name="type_com" Type="varchar" MaxLength="100" />
+          <Property Name="reduction" Type="varchar" MaxLength="100" />
+          <Property Name="date_com" Type="varchar" MaxLength="100" />
+          <Property Name="statut" Type="varchar" MaxLength="100" />
+          <Property Name="etat" Type="varchar" MaxLength="100" />
+          <Property Name="prix_total" Type="varchar" MaxLength="100" />
+          <Property Name="annee" Type="varchar" MaxLength="100" />
+          <Property Name="mois" Type="varchar" MaxLength="100" />
+          <Property Name="prix_TVA" Type="varchar" MaxLength="100" />
+          <Property Name="type_com_location" Type="varchar" MaxLength="100" />
+          <Property Name="type_com_achat" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="depense">
+          <Key>
+            <PropertyRef Name="id_dep" />
+          </Key>
+          <Property Name="id_dep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="total_depense" Type="varchar" MaxLength="100" />
+          <Property Name="mois" Type="varchar" MaxLength="100" />
+          <Property Name="annee" Type="varchar" MaxLength="100" />
+          <Property Name="statut" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="detail_com">
+          <Key>
+            <PropertyRef Name="id_detail_com" />
+          </Key>
+          <Property Name="id_detail_com" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_com" Type="int" Nullable="false" />
+          <Property Name="id_service" Type="int" Nullable="false" />
+          <Property Name="PU" Type="varchar" MaxLength="100" />
+          <Property Name="nom_feu" Type="varchar" MaxLength="100" />
+          <Property Name="date_nass" Type="varchar" MaxLength="100" />
+          <Property Name="date_dece" Type="varchar" MaxLength="100" />
+          <Property Name="quantite_d_com" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="detail_depense">
+          <Key>
+            <PropertyRef Name="id_det_dep" />
+          </Key>
+          <Property Name="id_det_dep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_dep" Type="int" Nullable="false" />
+          <Property Name="id_type_dep" Type="int" Nullable="false" />
+          <Property Name="quantite_depense" Type="varchar" MaxLength="100" />
+          <Property Name="prix_unite" Type="varchar" MaxLength="100" />
+          <Property Name="nom_pers" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="droit_menu">
+          <Key>
+            <PropertyRef Name="id_dmenu" />
+          </Key>
+          <Property Name="id_dmenu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_role" Type="int" Nullable="false" />
+          <Property Name="id_menu" Type="int" Nullable="false" />
+          <Property Name="gerer" Type="varchar" MaxLength="100" />
+          <Property Name="ajouter" Type="varchar" MaxLength="100" />
+          <Property Name="acces" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="intitule_produit">
+          <Key>
+            <PropertyRef Name="id_produit" />
+          </Key>
+          <Property Name="id_produit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_produit" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id_menu" />
+          </Key>
+          <Property Name="id_menu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_menu" Type="varchar" MaxLength="100" />
+          <Property Name="link" Type="varchar" MaxLength="100" />
+          <Property Name="etat" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="personnes">
+          <Key>
+            <PropertyRef Name="id_pers" />
+          </Key>
+          <Property Name="id_pers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="etat" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="pompe_funeble">
+          <Key>
+            <PropertyRef Name="id_pompe" />
+          </Key>
+          <Property Name="id_pompe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom_pompe" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="NIF" Type="varchar" MaxLength="100" />
+          <Property Name="code" Type="varchar" MaxLength="100" />
+          <Property Name="statut" Type="varchar" MaxLength="100" />
+          <Property Name="etat" Type="varchar" MaxLength="100" />
+          <Property Name="logos" Type="varchar" MaxLength="1" />
+          <Property Name="telephone" Type="int" />
+          <Property Name="RC" Type="varchar" MaxLength="100" />
+          <Property Name="sigle" Type="varchar" MaxLength="100" />
+          <Property Name="date_creation" Type="varchar" MaxLength="100" />
+          <Property Name="facebook" Type="varchar" MaxLength="100" />
+          <Property Name="whatshapp" Type="varchar" MaxLength="100" />
+          <Property Name="adresse" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pompe" Type="int" Nullable="false" />
+          <Property Name="nom_role" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="id_service" />
+          </Key>
+          <Property Name="id_service" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pompe" Type="int" Nullable="false" />
+          <Property Name="id_produit" Type="int" Nullable="false" />
+          <Property Name="nom_service" Type="varchar" MaxLength="100" />
+          <Property Name="prix_service" Type="varchar" MaxLength="100" />
+          <Property Name="longitude" Type="varchar" MaxLength="100" />
+          <Property Name="altitude" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="type_depense">
+          <Key>
+            <PropertyRef Name="id_type_dep" />
+          </Key>
+          <Property Name="id_type_dep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pompe" Type="int" Nullable="false" />
+          <Property Name="type_depens" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="utilisateur">
+          <Key>
+            <PropertyRef Name="id_ut" />
+          </Key>
+          <Property Name="id_ut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_pers" Type="int" Nullable="false" />
+          <Property Name="id_role" Type="int" Nullable="false" />
+          <Property Name="id_pompe" Type="int" Nullable="false" />
+          <Property Name="nom_ut" Type="varchar" MaxLength="100" />
+          <Property Name="prenom_ut" Type="varchar" MaxLength="100" />
+          <Property Name="telephone" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="100" />
+          <Property Name="type_client" Type="varchar" MaxLength="100" />
+          <Property Name="type_personne" Type="varchar" MaxLength="100" />
+          <Property Name="adresse" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__commande__id_ser__5BE2A6F2">
+          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__commande__id_ut__5AEE82B9">
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="utilisateur">
+              <PropertyRef Name="id_ut" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="id_ut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_co__id_co__534D60F1">
+          <End Role="commande" Type="Self.commande" Multiplicity="1" />
+          <End Role="detail_com" Type="Self.detail_com" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commande">
+              <PropertyRef Name="id_com" />
+            </Principal>
+            <Dependent Role="detail_com">
+              <PropertyRef Name="id_com" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_co__id_se__5441852A">
+          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="detail_com" Type="Self.detail_com" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="detail_com">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_de__id_de__5165187F">
+          <End Role="depense" Type="Self.depense" Multiplicity="1" />
+          <End Role="detail_depense" Type="Self.detail_depense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depense">
+              <PropertyRef Name="id_dep" />
+            </Principal>
+            <Dependent Role="detail_depense">
+              <PropertyRef Name="id_dep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_de__id_ty__52593CB8">
+          <End Role="type_depense" Type="Self.type_depense" Multiplicity="1" />
+          <End Role="detail_depense" Type="Self.detail_depense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_depense">
+              <PropertyRef Name="id_type_dep" />
+            </Principal>
+            <Dependent Role="detail_depense">
+              <PropertyRef Name="id_type_dep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__droit_men__id_me__5629CD9C">
+          <End Role="menu" Type="Self.menu" Multiplicity="1" />
+          <End Role="droit_menu" Type="Self.droit_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="droit_menu">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__droit_men__id_ro__5535A963">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="droit_menu" Type="Self.droit_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="droit_menu">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__role__id_pompe__571DF1D5">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="role">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__service__id_pomp__4F7CD00D">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__service__id_prod__5070F446">
+          <End Role="intitule_produit" Type="Self.intitule_produit" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="intitule_produit">
+              <PropertyRef Name="id_produit" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="id_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__type_depe__id_po__4E88ABD4">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="type_depense" Type="Self.type_depense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="type_depense">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__id_pe__5812160E">
+          <End Role="personnes" Type="Self.personnes" Multiplicity="1" />
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnes">
+              <PropertyRef Name="id_pers" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="id_pers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__id_po__59FA5E80">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__id_ro__59063A47">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="cimimanageModelStoreContainer">
+          <EntitySet Name="commande" EntityType="Self.commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="depense" EntityType="Self.depense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detail_com" EntityType="Self.detail_com" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detail_depense" EntityType="Self.detail_depense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="droit_menu" EntityType="Self.droit_menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="intitule_produit" EntityType="Self.intitule_produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="menu" EntityType="Self.menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personnes" EntityType="Self.personnes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pompe_funeble" EntityType="Self.pompe_funeble" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="type_depense" EntityType="Self.type_depense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="utilisateur" EntityType="Self.utilisateur" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__commande__id_ser__5BE2A6F2" Association="Self.FK__commande__id_ser__5BE2A6F2">
+            <End Role="service" EntitySet="service" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK__commande__id_ut__5AEE82B9" Association="Self.FK__commande__id_ut__5AEE82B9">
+            <End Role="utilisateur" EntitySet="utilisateur" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_co__id_co__534D60F1" Association="Self.FK__detail_co__id_co__534D60F1">
+            <End Role="commande" EntitySet="commande" />
+            <End Role="detail_com" EntitySet="detail_com" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_co__id_se__5441852A" Association="Self.FK__detail_co__id_se__5441852A">
+            <End Role="service" EntitySet="service" />
+            <End Role="detail_com" EntitySet="detail_com" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_de__id_de__5165187F" Association="Self.FK__detail_de__id_de__5165187F">
+            <End Role="depense" EntitySet="depense" />
+            <End Role="detail_depense" EntitySet="detail_depense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_de__id_ty__52593CB8" Association="Self.FK__detail_de__id_ty__52593CB8">
+            <End Role="type_depense" EntitySet="type_depense" />
+            <End Role="detail_depense" EntitySet="detail_depense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__droit_men__id_me__5629CD9C" Association="Self.FK__droit_men__id_me__5629CD9C">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="droit_menu" EntitySet="droit_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__droit_men__id_ro__5535A963" Association="Self.FK__droit_men__id_ro__5535A963">
+            <End Role="role" EntitySet="role" />
+            <End Role="droit_menu" EntitySet="droit_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__role__id_pompe__571DF1D5" Association="Self.FK__role__id_pompe__571DF1D5">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="role" EntitySet="role" />
+          </AssociationSet>
+          <AssociationSet Name="FK__service__id_pomp__4F7CD00D" Association="Self.FK__service__id_pomp__4F7CD00D">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__service__id_prod__5070F446" Association="Self.FK__service__id_prod__5070F446">
+            <End Role="intitule_produit" EntitySet="intitule_produit" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__type_depe__id_po__4E88ABD4" Association="Self.FK__type_depe__id_po__4E88ABD4">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="type_depense" EntitySet="type_depense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__id_pe__5812160E" Association="Self.FK__utilisate__id_pe__5812160E">
+            <End Role="personnes" EntitySet="personnes" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__id_po__59FA5E80" Association="Self.FK__utilisate__id_po__59FA5E80">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__id_ro__59063A47" Association="Self.FK__utilisate__id_ro__59063A47">
+            <End Role="role" EntitySet="role" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="cimimanageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="commande">
+          <Key>
+            <PropertyRef Name="id_com" />
+          </Key>
+          <Property Name="id_com" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_ut" Type="Int32" Nullable="false" />
+          <Property Name="id_service" Type="Int32" Nullable="false" />
+          <Property Name="code_com" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_com" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="reduction" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_com" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="etat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prix_total" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="annee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mois" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prix_TVA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_com_location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_com_achat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="service" Relationship="Self.FK__commande__id_ser__5BE2A6F2" FromRole="commande" ToRole="service" />
+          <NavigationProperty Name="utilisateur" Relationship="Self.FK__commande__id_ut__5AEE82B9" FromRole="commande" ToRole="utilisateur" />
+          <NavigationProperty Name="detail_com" Relationship="Self.FK__detail_co__id_co__534D60F1" FromRole="commande" ToRole="detail_com" />
+        </EntityType>
+        <EntityType Name="depense">
+          <Key>
+            <PropertyRef Name="id_dep" />
+          </Key>
+          <Property Name="id_dep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="total_depense" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mois" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="annee" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="detail_depense" Relationship="Self.FK__detail_de__id_de__5165187F" FromRole="depense" ToRole="detail_depense" />
+        </EntityType>
+        <EntityType Name="detail_com">
+          <Key>
+            <PropertyRef Name="id_detail_com" />
+          </Key>
+          <Property Name="id_detail_com" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_com" Type="Int32" Nullable="false" />
+          <Property Name="id_service" Type="Int32" Nullable="false" />
+          <Property Name="PU" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nom_feu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_nass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_dece" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="quantite_d_com" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="commande" Relationship="Self.FK__detail_co__id_co__534D60F1" FromRole="detail_com" ToRole="commande" />
+          <NavigationProperty Name="service" Relationship="Self.FK__detail_co__id_se__5441852A" FromRole="detail_com" ToRole="service" />
+        </EntityType>
+        <EntityType Name="detail_depense">
+          <Key>
+            <PropertyRef Name="id_det_dep" />
+          </Key>
+          <Property Name="id_det_dep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_dep" Type="Int32" Nullable="false" />
+          <Property Name="id_type_dep" Type="Int32" Nullable="false" />
+          <Property Name="quantite_depense" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prix_unite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nom_pers" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="depense" Relationship="Self.FK__detail_de__id_de__5165187F" FromRole="detail_depense" ToRole="depense" />
+          <NavigationProperty Name="type_depense" Relationship="Self.FK__detail_de__id_ty__52593CB8" FromRole="detail_depense" ToRole="type_depense" />
+        </EntityType>
+        <EntityType Name="droit_menu">
+          <Key>
+            <PropertyRef Name="id_dmenu" />
+          </Key>
+          <Property Name="id_dmenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <Property Name="id_menu" Type="Int32" Nullable="false" />
+          <Property Name="gerer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ajouter" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="acces" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="menu" Relationship="Self.FK__droit_men__id_me__5629CD9C" FromRole="droit_menu" ToRole="menu" />
+          <NavigationProperty Name="role" Relationship="Self.FK__droit_men__id_ro__5535A963" FromRole="droit_menu" ToRole="role" />
+        </EntityType>
+        <EntityType Name="intitule_produit">
+          <Key>
+            <PropertyRef Name="id_produit" />
+          </Key>
+          <Property Name="id_produit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_produit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="service" Relationship="Self.FK__service__id_prod__5070F446" FromRole="intitule_produit" ToRole="service" />
+        </EntityType>
+        <EntityType Name="menu">
+          <Key>
+            <PropertyRef Name="id_menu" />
+          </Key>
+          <Property Name="id_menu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_menu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="link" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="etat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="droit_menu" Relationship="Self.FK__droit_men__id_me__5629CD9C" FromRole="menu" ToRole="droit_menu" />
+        </EntityType>
+        <EntityType Name="personnes">
+          <Key>
+            <PropertyRef Name="id_pers" />
+          </Key>
+          <Property Name="id_pers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="etat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="utilisateur" Relationship="Self.FK__utilisate__id_pe__5812160E" FromRole="personnes" ToRole="utilisateur" />
+        </EntityType>
+        <EntityType Name="pompe_funeble">
+          <Key>
+            <PropertyRef Name="id_pompe" />
+          </Key>
+          <Property Name="id_pompe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_pompe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NIF" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="etat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="logos" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="Int32" />
+          <Property Name="RC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sigle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_creation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="whatshapp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="role" Relationship="Self.FK__role__id_pompe__571DF1D5" FromRole="pompe_funeble" ToRole="role" />
+          <NavigationProperty Name="service" Relationship="Self.FK__service__id_pomp__4F7CD00D" FromRole="pompe_funeble" ToRole="service" />
+          <NavigationProperty Name="type_depense" Relationship="Self.FK__type_depe__id_po__4E88ABD4" FromRole="pompe_funeble" ToRole="type_depense" />
+          <NavigationProperty Name="utilisateur" Relationship="Self.FK__utilisate__id_po__59FA5E80" FromRole="pompe_funeble" ToRole="utilisateur" />
+        </EntityType>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id_role" />
+          </Key>
+          <Property Name="id_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pompe" Type="Int32" Nullable="false" />
+          <Property Name="nom_role" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="droit_menu" Relationship="Self.FK__droit_men__id_ro__5535A963" FromRole="role" ToRole="droit_menu" />
+          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__role__id_pompe__571DF1D5" FromRole="role" ToRole="pompe_funeble" />
+          <NavigationProperty Name="utilisateur" Relationship="Self.FK__utilisate__id_ro__59063A47" FromRole="role" ToRole="utilisateur" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="id_service" />
+          </Key>
+          <Property Name="id_service" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pompe" Type="Int32" Nullable="false" />
+          <Property Name="id_produit" Type="Int32" Nullable="false" />
+          <Property Name="nom_service" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prix_service" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="altitude" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="commande" Relationship="Self.FK__commande__id_ser__5BE2A6F2" FromRole="service" ToRole="commande" />
+          <NavigationProperty Name="detail_com" Relationship="Self.FK__detail_co__id_se__5441852A" FromRole="service" ToRole="detail_com" />
+          <NavigationProperty Name="intitule_produit" Relationship="Self.FK__service__id_prod__5070F446" FromRole="service" ToRole="intitule_produit" />
+          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__service__id_pomp__4F7CD00D" FromRole="service" ToRole="pompe_funeble" />
+        </EntityType>
+        <EntityType Name="type_depense">
+          <Key>
+            <PropertyRef Name="id_type_dep" />
+          </Key>
+          <Property Name="id_type_dep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pompe" Type="Int32" Nullable="false" />
+          <Property Name="type_depens" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="detail_depense" Relationship="Self.FK__detail_de__id_ty__52593CB8" FromRole="type_depense" ToRole="detail_depense" />
+          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__type_depe__id_po__4E88ABD4" FromRole="type_depense" ToRole="pompe_funeble" />
+        </EntityType>
+        <EntityType Name="utilisateur">
+          <Key>
+            <PropertyRef Name="id_ut" />
+          </Key>
+          <Property Name="id_ut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_pers" Type="Int32" Nullable="false" />
+          <Property Name="id_role" Type="Int32" Nullable="false" />
+          <Property Name="id_pompe" Type="Int32" Nullable="false" />
+          <Property Name="nom_ut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="prenom_ut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_client" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type_personne" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="commande" Relationship="Self.FK__commande__id_ut__5AEE82B9" FromRole="utilisateur" ToRole="commande" />
+          <NavigationProperty Name="personnes" Relationship="Self.FK__utilisate__id_pe__5812160E" FromRole="utilisateur" ToRole="personnes" />
+          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__utilisate__id_po__59FA5E80" FromRole="utilisateur" ToRole="pompe_funeble" />
+          <NavigationProperty Name="role" Relationship="Self.FK__utilisate__id_ro__59063A47" FromRole="utilisateur" ToRole="role" />
+        </EntityType>
+        <Association Name="FK__commande__id_ser__5BE2A6F2">
+          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__commande__id_ut__5AEE82B9">
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="1" />
+          <End Role="commande" Type="Self.commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="utilisateur">
+              <PropertyRef Name="id_ut" />
+            </Principal>
+            <Dependent Role="commande">
+              <PropertyRef Name="id_ut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_co__id_co__534D60F1">
+          <End Role="commande" Type="Self.commande" Multiplicity="1" />
+          <End Role="detail_com" Type="Self.detail_com" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="commande">
+              <PropertyRef Name="id_com" />
+            </Principal>
+            <Dependent Role="detail_com">
+              <PropertyRef Name="id_com" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_de__id_de__5165187F">
+          <End Role="depense" Type="Self.depense" Multiplicity="1" />
+          <End Role="detail_depense" Type="Self.detail_depense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="depense">
+              <PropertyRef Name="id_dep" />
+            </Principal>
+            <Dependent Role="detail_depense">
+              <PropertyRef Name="id_dep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_co__id_se__5441852A">
+          <End Role="service" Type="Self.service" Multiplicity="1" />
+          <End Role="detail_com" Type="Self.detail_com" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="service">
+              <PropertyRef Name="id_service" />
+            </Principal>
+            <Dependent Role="detail_com">
+              <PropertyRef Name="id_service" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail_de__id_ty__52593CB8">
+          <End Role="type_depense" Type="Self.type_depense" Multiplicity="1" />
+          <End Role="detail_depense" Type="Self.detail_depense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="type_depense">
+              <PropertyRef Name="id_type_dep" />
+            </Principal>
+            <Dependent Role="detail_depense">
+              <PropertyRef Name="id_type_dep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__droit_men__id_me__5629CD9C">
+          <End Role="menu" Type="Self.menu" Multiplicity="1" />
+          <End Role="droit_menu" Type="Self.droit_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="menu">
+              <PropertyRef Name="id_menu" />
+            </Principal>
+            <Dependent Role="droit_menu">
+              <PropertyRef Name="id_menu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__droit_men__id_ro__5535A963">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="droit_menu" Type="Self.droit_menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="droit_menu">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__service__id_prod__5070F446">
+          <End Role="intitule_produit" Type="Self.intitule_produit" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="intitule_produit">
+              <PropertyRef Name="id_produit" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="id_produit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__id_pe__5812160E">
+          <End Role="personnes" Type="Self.personnes" Multiplicity="1" />
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personnes">
+              <PropertyRef Name="id_pers" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="id_pers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__role__id_pompe__571DF1D5">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="role" Type="Self.role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="role">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__service__id_pomp__4F7CD00D">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="service" Type="Self.service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__type_depe__id_po__4E88ABD4">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="type_depense" Type="Self.type_depense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="type_depense">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__id_po__59FA5E80">
+          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__id_ro__59063A47">
+          <End Role="role" Type="Self.role" Multiplicity="1" />
+          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id_role" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="connection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="commande" EntityType="Self.commande" />
+          <EntitySet Name="depense" EntityType="Self.depense" />
+          <EntitySet Name="detail_com" EntityType="Self.detail_com" />
+          <EntitySet Name="detail_depense" EntityType="Self.detail_depense" />
+          <EntitySet Name="droit_menu" EntityType="Self.droit_menu" />
+          <EntitySet Name="intitule_produit" EntityType="Self.intitule_produit" />
+          <EntitySet Name="menu" EntityType="Self.menu" />
+          <EntitySet Name="personnes" EntityType="Self.personnes" />
+          <EntitySet Name="pompe_funeble" EntityType="Self.pompe_funeble" />
+          <EntitySet Name="role" EntityType="Self.role" />
+          <EntitySet Name="service" EntityType="Self.service" />
+          <EntitySet Name="type_depense" EntityType="Self.type_depense" />
+          <EntitySet Name="utilisateur" EntityType="Self.utilisateur" />
+          <AssociationSet Name="FK__commande__id_ser__5BE2A6F2" Association="Self.FK__commande__id_ser__5BE2A6F2">
+            <End Role="service" EntitySet="service" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK__commande__id_ut__5AEE82B9" Association="Self.FK__commande__id_ut__5AEE82B9">
+            <End Role="utilisateur" EntitySet="utilisateur" />
+            <End Role="commande" EntitySet="commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_co__id_co__534D60F1" Association="Self.FK__detail_co__id_co__534D60F1">
+            <End Role="commande" EntitySet="commande" />
+            <End Role="detail_com" EntitySet="detail_com" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_de__id_de__5165187F" Association="Self.FK__detail_de__id_de__5165187F">
+            <End Role="depense" EntitySet="depense" />
+            <End Role="detail_depense" EntitySet="detail_depense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_co__id_se__5441852A" Association="Self.FK__detail_co__id_se__5441852A">
+            <End Role="service" EntitySet="service" />
+            <End Role="detail_com" EntitySet="detail_com" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail_de__id_ty__52593CB8" Association="Self.FK__detail_de__id_ty__52593CB8">
+            <End Role="type_depense" EntitySet="type_depense" />
+            <End Role="detail_depense" EntitySet="detail_depense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__droit_men__id_me__5629CD9C" Association="Self.FK__droit_men__id_me__5629CD9C">
+            <End Role="menu" EntitySet="menu" />
+            <End Role="droit_menu" EntitySet="droit_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__droit_men__id_ro__5535A963" Association="Self.FK__droit_men__id_ro__5535A963">
+            <End Role="role" EntitySet="role" />
+            <End Role="droit_menu" EntitySet="droit_menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__service__id_prod__5070F446" Association="Self.FK__service__id_prod__5070F446">
+            <End Role="intitule_produit" EntitySet="intitule_produit" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__id_pe__5812160E" Association="Self.FK__utilisate__id_pe__5812160E">
+            <End Role="personnes" EntitySet="personnes" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__role__id_pompe__571DF1D5" Association="Self.FK__role__id_pompe__571DF1D5">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="role" EntitySet="role" />
+          </AssociationSet>
+          <AssociationSet Name="FK__service__id_pomp__4F7CD00D" Association="Self.FK__service__id_pomp__4F7CD00D">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__type_depe__id_po__4E88ABD4" Association="Self.FK__type_depe__id_po__4E88ABD4">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="type_depense" EntitySet="type_depense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__id_po__59FA5E80" Association="Self.FK__utilisate__id_po__59FA5E80">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__id_ro__59063A47" Association="Self.FK__utilisate__id_ro__59063A47">
+            <End Role="role" EntitySet="role" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="cimimanageModelStoreContainer" CdmEntityContainer="connection">
+          <EntitySetMapping Name="commande">
+            <EntityTypeMapping TypeName="cimimanageModel.commande">
+              <MappingFragment StoreEntitySet="commande">
+                <ScalarProperty Name="id_com" ColumnName="id_com" />
+                <ScalarProperty Name="id_ut" ColumnName="id_ut" />
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="code_com" ColumnName="code_com" />
+                <ScalarProperty Name="type_com" ColumnName="type_com" />
+                <ScalarProperty Name="reduction" ColumnName="reduction" />
+                <ScalarProperty Name="date_com" ColumnName="date_com" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+                <ScalarProperty Name="etat" ColumnName="etat" />
+                <ScalarProperty Name="prix_total" ColumnName="prix_total" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="prix_TVA" ColumnName="prix_TVA" />
+                <ScalarProperty Name="type_com_location" ColumnName="type_com_location" />
+                <ScalarProperty Name="type_com_achat" ColumnName="type_com_achat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="depense">
+            <EntityTypeMapping TypeName="cimimanageModel.depense">
+              <MappingFragment StoreEntitySet="depense">
+                <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+                <ScalarProperty Name="total_depense" ColumnName="total_depense" />
+                <ScalarProperty Name="mois" ColumnName="mois" />
+                <ScalarProperty Name="annee" ColumnName="annee" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detail_com">
+            <EntityTypeMapping TypeName="cimimanageModel.detail_com">
+              <MappingFragment StoreEntitySet="detail_com">
+                <ScalarProperty Name="id_detail_com" ColumnName="id_detail_com" />
+                <ScalarProperty Name="id_com" ColumnName="id_com" />
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="PU" ColumnName="PU" />
+                <ScalarProperty Name="nom_feu" ColumnName="nom_feu" />
+                <ScalarProperty Name="date_nass" ColumnName="date_nass" />
+                <ScalarProperty Name="date_dece" ColumnName="date_dece" />
+                <ScalarProperty Name="quantite_d_com" ColumnName="quantite_d_com" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detail_depense">
+            <EntityTypeMapping TypeName="cimimanageModel.detail_depense">
+              <MappingFragment StoreEntitySet="detail_depense">
+                <ScalarProperty Name="id_det_dep" ColumnName="id_det_dep" />
+                <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+                <ScalarProperty Name="id_type_dep" ColumnName="id_type_dep" />
+                <ScalarProperty Name="quantite_depense" ColumnName="quantite_depense" />
+                <ScalarProperty Name="prix_unite" ColumnName="prix_unite" />
+                <ScalarProperty Name="nom_pers" ColumnName="nom_pers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="droit_menu">
+            <EntityTypeMapping TypeName="cimimanageModel.droit_menu">
+              <MappingFragment StoreEntitySet="droit_menu">
+                <ScalarProperty Name="id_dmenu" ColumnName="id_dmenu" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="gerer" ColumnName="gerer" />
+                <ScalarProperty Name="ajouter" ColumnName="ajouter" />
+                <ScalarProperty Name="acces" ColumnName="acces" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="intitule_produit">
+            <EntityTypeMapping TypeName="cimimanageModel.intitule_produit">
+              <MappingFragment StoreEntitySet="intitule_produit">
+                <ScalarProperty Name="id_produit" ColumnName="id_produit" />
+                <ScalarProperty Name="nom_produit" ColumnName="nom_produit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="menu">
+            <EntityTypeMapping TypeName="cimimanageModel.menu">
+              <MappingFragment StoreEntitySet="menu">
+                <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+                <ScalarProperty Name="nom_menu" ColumnName="nom_menu" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="etat" ColumnName="etat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personnes">
+            <EntityTypeMapping TypeName="cimimanageModel.personnes">
+              <MappingFragment StoreEntitySet="personnes">
+                <ScalarProperty Name="id_pers" ColumnName="id_pers" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="etat" ColumnName="etat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pompe_funeble">
+            <EntityTypeMapping TypeName="cimimanageModel.pompe_funeble">
+              <MappingFragment StoreEntitySet="pompe_funeble">
+                <ScalarProperty Name="id_pompe" ColumnName="id_pompe" />
+                <ScalarProperty Name="nom_pompe" ColumnName="nom_pompe" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="NIF" ColumnName="NIF" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+                <ScalarProperty Name="etat" ColumnName="etat" />
+                <ScalarProperty Name="logos" ColumnName="logos" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="RC" ColumnName="RC" />
+                <ScalarProperty Name="sigle" ColumnName="sigle" />
+                <ScalarProperty Name="date_creation" ColumnName="date_creation" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="whatshapp" ColumnName="whatshapp" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="role">
+            <EntityTypeMapping TypeName="cimimanageModel.role">
+              <MappingFragment StoreEntitySet="role">
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="id_pompe" ColumnName="id_pompe" />
+                <ScalarProperty Name="nom_role" ColumnName="nom_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="service">
+            <EntityTypeMapping TypeName="cimimanageModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="id_service" ColumnName="id_service" />
+                <ScalarProperty Name="id_pompe" ColumnName="id_pompe" />
+                <ScalarProperty Name="id_produit" ColumnName="id_produit" />
+                <ScalarProperty Name="nom_service" ColumnName="nom_service" />
+                <ScalarProperty Name="prix_service" ColumnName="prix_service" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="altitude" ColumnName="altitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="type_depense">
+            <EntityTypeMapping TypeName="cimimanageModel.type_depense">
+              <MappingFragment StoreEntitySet="type_depense">
+                <ScalarProperty Name="id_type_dep" ColumnName="id_type_dep" />
+                <ScalarProperty Name="id_pompe" ColumnName="id_pompe" />
+                <ScalarProperty Name="type_depens" ColumnName="type_depens" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="utilisateur">
+            <EntityTypeMapping TypeName="cimimanageModel.utilisateur">
+              <MappingFragment StoreEntitySet="utilisateur">
+                <ScalarProperty Name="id_ut" ColumnName="id_ut" />
+                <ScalarProperty Name="id_pers" ColumnName="id_pers" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+                <ScalarProperty Name="id_pompe" ColumnName="id_pompe" />
+                <ScalarProperty Name="nom_ut" ColumnName="nom_ut" />
+                <ScalarProperty Name="prenom_ut" ColumnName="prenom_ut" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="type_client" ColumnName="type_client" />
+                <ScalarProperty Name="type_personne" ColumnName="type_personne" />
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
