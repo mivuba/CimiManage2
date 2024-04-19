@@ -173,6 +173,7 @@
     <Content Include="file\intitule_produit.aspx" />
     <Content Include="file\listcommande.aspx" />
     <Content Include="file\listdepense.aspx" />
+    <Content Include="file\listdetail_commande.aspx" />
     <Content Include="file\listdetail_depense.aspx" />
     <Content Include="file\listdroit_menu.aspx" />
     <Content Include="file\listepompe_funeble.aspx" />
@@ -397,6 +398,13 @@
     </Compile>
     <Compile Include="file\listdepense.aspx.designer.cs">
       <DependentUpon>listdepense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listdetail_commande.aspx.cs">
+      <DependentUpon>listdetail_commande.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listdetail_commande.aspx.designer.cs">
+      <DependentUpon>listdetail_commande.aspx</DependentUpon>
     </Compile>
     <Compile Include="file\listdetail_depense.aspx.cs">
       <DependentUpon>listdetail_depense.aspx</DependentUpon>

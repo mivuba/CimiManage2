@@ -17,16 +17,16 @@
 
    
 
-    <asp:Label ID="Label3" runat="server" Text="code_com "></asp:Label>
+    <asp:Label ID="Label3" runat="server" Text="code_commande "></asp:Label>
     <asp:TextBox ID="txtcd" runat="server"></asp:TextBox>
 
-       <asp:Label ID="Label5" runat="server" Text="type_com "></asp:Label>
+       <asp:Label ID="Label5" runat="server" Text="type_commande "></asp:Label>
    <asp:TextBox ID="txttyp" runat="server"></asp:TextBox>
 
        <asp:Label ID="Label6" runat="server" Text="reduction "></asp:Label>
    <asp:TextBox ID="txtrd" runat="server"></asp:TextBox>
 
-       <asp:Label ID="Label7" runat="server" Text="date_com "></asp:Label>
+       <asp:Label ID="Label7" runat="server" Text="date_commande "></asp:Label>
    <asp:TextBox ID="txtdt" runat="server"></asp:TextBox>
 
        <asp:Label ID="Label8" runat="server" Text="statut "></asp:Label>
