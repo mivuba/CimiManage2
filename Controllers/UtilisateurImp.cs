@@ -158,6 +158,7 @@ namespace CimiManage.Controllers
             using (connection con = new connection())
             {
                 u = con.utilisateur.Where(x => x.id_ut == id).First();
+
                 if (con.Entry(u).State == EntityState.Detached)
                     con.utilisateur.Attach(u);
                 con.utilisateur.Remove(u);

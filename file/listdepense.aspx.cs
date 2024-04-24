@@ -14,7 +14,7 @@ namespace CimiManage.file
     {
         depense_classe dp = new depense_classe();
         IDepense obj = new DepenseImp();
-        int info;
+        // int info;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="cimimanageModel.intitule_produit" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="cimimanageModel.menu" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cimimanageModel.personnes" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
-        <EntityTypeShape EntityType="cimimanageModel.pompe_funeble" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="cimimanageModel.role" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="cimimanageModel.service" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="cimimanageModel.type_depense" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
@@ -28,11 +27,12 @@
         <AssociationConnector Association="cimimanageModel.FK__droit_men__id_ro__5535A963" ManuallyRouted="false" />
         <AssociationConnector Association="cimimanageModel.FK__service__id_prod__5070F446" ManuallyRouted="false" />
         <AssociationConnector Association="cimimanageModel.FK__utilisate__id_pe__5812160E" ManuallyRouted="false" />
-        <AssociationConnector Association="cimimanageModel.FK__role__id_pompe__571DF1D5" ManuallyRouted="false" />
-        <AssociationConnector Association="cimimanageModel.FK__service__id_pomp__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="cimimanageModel.FK__type_depe__id_po__4E88ABD4" ManuallyRouted="false" />
-        <AssociationConnector Association="cimimanageModel.FK__utilisate__id_po__59FA5E80" ManuallyRouted="false" />
         <AssociationConnector Association="cimimanageModel.FK__utilisate__id_ro__59063A47" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cimimanageModel.pompe_funeble" Width="1.5" PointX="0.75" PointY="6.625" />
+        <AssociationConnector Association="cimimanageModel.FK__role__id_pompe__571DF1D5" />
+        <AssociationConnector Association="cimimanageModel.FK__service__id_pomp__4F7CD00D" />
+        <AssociationConnector Association="cimimanageModel.FK__type_depe__id_po__4E88ABD4" />
+        <AssociationConnector Association="cimimanageModel.FK__utilisate__id_po__59FA5E80" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

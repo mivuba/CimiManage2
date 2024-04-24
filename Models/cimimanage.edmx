@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="cimimanageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="cimimanageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="commande">
           <Key>
             <PropertyRef Name="id_com" />
@@ -106,7 +106,7 @@
           <Property Name="code" Type="varchar" MaxLength="100" />
           <Property Name="statut" Type="varchar" MaxLength="100" />
           <Property Name="etat" Type="varchar" MaxLength="100" />
-          <Property Name="logos" Type="varchar" MaxLength="1" />
+          <Property Name="logos" Type="text" />
           <Property Name="telephone" Type="int" />
           <Property Name="RC" Type="varchar" MaxLength="100" />
           <Property Name="sigle" Type="varchar" MaxLength="100" />
@@ -414,8 +414,7 @@
             <End Role="utilisateur" EntitySet="utilisateur" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cimimanageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -522,30 +521,6 @@
           <Property Name="etat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="utilisateur" Relationship="Self.FK__utilisate__id_pe__5812160E" FromRole="personnes" ToRole="utilisateur" />
         </EntityType>
-        <EntityType Name="pompe_funeble">
-          <Key>
-            <PropertyRef Name="id_pompe" />
-          </Key>
-          <Property Name="id_pompe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nom_pompe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="NIF" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="etat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="logos" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="telephone" Type="Int32" />
-          <Property Name="RC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="sigle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="date_creation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="whatshapp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="role" Relationship="Self.FK__role__id_pompe__571DF1D5" FromRole="pompe_funeble" ToRole="role" />
-          <NavigationProperty Name="service" Relationship="Self.FK__service__id_pomp__4F7CD00D" FromRole="pompe_funeble" ToRole="service" />
-          <NavigationProperty Name="type_depense" Relationship="Self.FK__type_depe__id_po__4E88ABD4" FromRole="pompe_funeble" ToRole="type_depense" />
-          <NavigationProperty Name="utilisateur" Relationship="Self.FK__utilisate__id_po__59FA5E80" FromRole="pompe_funeble" ToRole="utilisateur" />
-        </EntityType>
         <EntityType Name="role">
           <Key>
             <PropertyRef Name="id_role" />
@@ -554,8 +529,8 @@
           <Property Name="id_pompe" Type="Int32" Nullable="false" />
           <Property Name="nom_role" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="droit_menu" Relationship="Self.FK__droit_men__id_ro__5535A963" FromRole="role" ToRole="droit_menu" />
-          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__role__id_pompe__571DF1D5" FromRole="role" ToRole="pompe_funeble" />
           <NavigationProperty Name="utilisateur" Relationship="Self.FK__utilisate__id_ro__59063A47" FromRole="role" ToRole="utilisateur" />
+          <NavigationProperty Name="pompe_funeble" Relationship="cimimanageModel.FK__role__id_pompe__571DF1D5" FromRole="role" ToRole="pompe_funeble" />
         </EntityType>
         <EntityType Name="service">
           <Key>
@@ -571,7 +546,7 @@
           <NavigationProperty Name="commande" Relationship="Self.FK__commande__id_ser__5BE2A6F2" FromRole="service" ToRole="commande" />
           <NavigationProperty Name="detail_com" Relationship="Self.FK__detail_co__id_se__5441852A" FromRole="service" ToRole="detail_com" />
           <NavigationProperty Name="intitule_produit" Relationship="Self.FK__service__id_prod__5070F446" FromRole="service" ToRole="intitule_produit" />
-          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__service__id_pomp__4F7CD00D" FromRole="service" ToRole="pompe_funeble" />
+          <NavigationProperty Name="pompe_funeble" Relationship="cimimanageModel.FK__service__id_pomp__4F7CD00D" FromRole="service" ToRole="pompe_funeble" />
         </EntityType>
         <EntityType Name="type_depense">
           <Key>
@@ -581,7 +556,7 @@
           <Property Name="id_pompe" Type="Int32" Nullable="false" />
           <Property Name="type_depens" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="detail_depense" Relationship="Self.FK__detail_de__id_ty__52593CB8" FromRole="type_depense" ToRole="detail_depense" />
-          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__type_depe__id_po__4E88ABD4" FromRole="type_depense" ToRole="pompe_funeble" />
+          <NavigationProperty Name="pompe_funeble" Relationship="cimimanageModel.FK__type_depe__id_po__4E88ABD4" FromRole="type_depense" ToRole="pompe_funeble" />
         </EntityType>
         <EntityType Name="utilisateur">
           <Key>
@@ -600,8 +575,8 @@
           <Property Name="adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="commande" Relationship="Self.FK__commande__id_ut__5AEE82B9" FromRole="utilisateur" ToRole="commande" />
           <NavigationProperty Name="personnes" Relationship="Self.FK__utilisate__id_pe__5812160E" FromRole="utilisateur" ToRole="personnes" />
-          <NavigationProperty Name="pompe_funeble" Relationship="Self.FK__utilisate__id_po__59FA5E80" FromRole="utilisateur" ToRole="pompe_funeble" />
           <NavigationProperty Name="role" Relationship="Self.FK__utilisate__id_ro__59063A47" FromRole="utilisateur" ToRole="role" />
+          <NavigationProperty Name="pompe_funeble" Relationship="cimimanageModel.FK__utilisate__id_po__59FA5E80" FromRole="utilisateur" ToRole="pompe_funeble" />
         </EntityType>
         <Association Name="FK__commande__id_ser__5BE2A6F2">
           <End Role="service" Type="Self.service" Multiplicity="1" />
@@ -723,54 +698,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__role__id_pompe__571DF1D5">
-          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
-          <End Role="role" Type="Self.role" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pompe_funeble">
-              <PropertyRef Name="id_pompe" />
-            </Principal>
-            <Dependent Role="role">
-              <PropertyRef Name="id_pompe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__service__id_pomp__4F7CD00D">
-          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
-          <End Role="service" Type="Self.service" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pompe_funeble">
-              <PropertyRef Name="id_pompe" />
-            </Principal>
-            <Dependent Role="service">
-              <PropertyRef Name="id_pompe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__type_depe__id_po__4E88ABD4">
-          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
-          <End Role="type_depense" Type="Self.type_depense" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pompe_funeble">
-              <PropertyRef Name="id_pompe" />
-            </Principal>
-            <Dependent Role="type_depense">
-              <PropertyRef Name="id_pompe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__utilisate__id_po__59FA5E80">
-          <End Role="pompe_funeble" Type="Self.pompe_funeble" Multiplicity="1" />
-          <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="pompe_funeble">
-              <PropertyRef Name="id_pompe" />
-            </Principal>
-            <Dependent Role="utilisateur">
-              <PropertyRef Name="id_pompe" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__utilisate__id_ro__59063A47">
           <End Role="role" Type="Self.role" Multiplicity="1" />
           <End Role="utilisateur" Type="Self.utilisateur" Multiplicity="*" />
@@ -792,7 +719,6 @@
           <EntitySet Name="intitule_produit" EntityType="Self.intitule_produit" />
           <EntitySet Name="menu" EntityType="Self.menu" />
           <EntitySet Name="personnes" EntityType="Self.personnes" />
-          <EntitySet Name="pompe_funeble" EntityType="Self.pompe_funeble" />
           <EntitySet Name="role" EntityType="Self.role" />
           <EntitySet Name="service" EntityType="Self.service" />
           <EntitySet Name="type_depense" EntityType="Self.type_depense" />
@@ -837,27 +763,100 @@
             <End Role="personnes" EntitySet="personnes" />
             <End Role="utilisateur" EntitySet="utilisateur" />
           </AssociationSet>
-          <AssociationSet Name="FK__role__id_pompe__571DF1D5" Association="Self.FK__role__id_pompe__571DF1D5">
-            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
-            <End Role="role" EntitySet="role" />
-          </AssociationSet>
-          <AssociationSet Name="FK__service__id_pomp__4F7CD00D" Association="Self.FK__service__id_pomp__4F7CD00D">
-            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
-            <End Role="service" EntitySet="service" />
-          </AssociationSet>
-          <AssociationSet Name="FK__type_depe__id_po__4E88ABD4" Association="Self.FK__type_depe__id_po__4E88ABD4">
-            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
-            <End Role="type_depense" EntitySet="type_depense" />
-          </AssociationSet>
-          <AssociationSet Name="FK__utilisate__id_po__59FA5E80" Association="Self.FK__utilisate__id_po__59FA5E80">
-            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
-            <End Role="utilisateur" EntitySet="utilisateur" />
-          </AssociationSet>
           <AssociationSet Name="FK__utilisate__id_ro__59063A47" Association="Self.FK__utilisate__id_ro__59063A47">
             <End Role="role" EntitySet="role" />
             <End Role="utilisateur" EntitySet="utilisateur" />
           </AssociationSet>
+          <EntitySet Name="pompe_funeble" EntityType="cimimanageModel.pompe_funeble" />
+          <AssociationSet Name="FK__role__id_pompe__571DF1D5" Association="cimimanageModel.FK__role__id_pompe__571DF1D5">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="role" EntitySet="role" />
+          </AssociationSet>
+          <AssociationSet Name="FK__service__id_pomp__4F7CD00D" Association="cimimanageModel.FK__service__id_pomp__4F7CD00D">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="service" EntitySet="service" />
+          </AssociationSet>
+          <AssociationSet Name="FK__type_depe__id_po__4E88ABD4" Association="cimimanageModel.FK__type_depe__id_po__4E88ABD4">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="type_depense" EntitySet="type_depense" />
+          </AssociationSet>
+          <AssociationSet Name="FK__utilisate__id_po__59FA5E80" Association="cimimanageModel.FK__utilisate__id_po__59FA5E80">
+            <End Role="pompe_funeble" EntitySet="pompe_funeble" />
+            <End Role="utilisateur" EntitySet="utilisateur" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="pompe_funeble">
+          <Key>
+            <PropertyRef Name="id_pompe" />
+          </Key>
+          <Property Name="id_pompe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom_pompe" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NIF" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="statut" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="etat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="logos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="Int32" />
+          <Property Name="RC" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sigle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="date_creation" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="facebook" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="whatshapp" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="adresse" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="role" Relationship="cimimanageModel.FK__role__id_pompe__571DF1D5" FromRole="pompe_funeble" ToRole="role" />
+          <NavigationProperty Name="service" Relationship="cimimanageModel.FK__service__id_pomp__4F7CD00D" FromRole="pompe_funeble" ToRole="service" />
+          <NavigationProperty Name="type_depense" Relationship="cimimanageModel.FK__type_depe__id_po__4E88ABD4" FromRole="pompe_funeble" ToRole="type_depense" />
+          <NavigationProperty Name="utilisateur" Relationship="cimimanageModel.FK__utilisate__id_po__59FA5E80" FromRole="pompe_funeble" ToRole="utilisateur" />
+        </EntityType>
+        <Association Name="FK__role__id_pompe__571DF1D5">
+          <End Type="cimimanageModel.pompe_funeble" Role="pompe_funeble" Multiplicity="1" />
+          <End Type="cimimanageModel.role" Role="role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="role">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__service__id_pomp__4F7CD00D">
+          <End Type="cimimanageModel.pompe_funeble" Role="pompe_funeble" Multiplicity="1" />
+          <End Type="cimimanageModel.service" Role="service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="service">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__type_depe__id_po__4E88ABD4">
+          <End Type="cimimanageModel.pompe_funeble" Role="pompe_funeble" Multiplicity="1" />
+          <End Type="cimimanageModel.type_depense" Role="type_depense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="type_depense">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__utilisate__id_po__59FA5E80">
+          <End Type="cimimanageModel.pompe_funeble" Role="pompe_funeble" Multiplicity="1" />
+          <End Type="cimimanageModel.utilisateur" Role="utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pompe_funeble">
+              <PropertyRef Name="id_pompe" />
+            </Principal>
+            <Dependent Role="utilisateur">
+              <PropertyRef Name="id_pompe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -962,27 +961,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="pompe_funeble">
-            <EntityTypeMapping TypeName="cimimanageModel.pompe_funeble">
-              <MappingFragment StoreEntitySet="pompe_funeble">
-                <ScalarProperty Name="id_pompe" ColumnName="id_pompe" />
-                <ScalarProperty Name="nom_pompe" ColumnName="nom_pompe" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="NIF" ColumnName="NIF" />
-                <ScalarProperty Name="code" ColumnName="code" />
-                <ScalarProperty Name="statut" ColumnName="statut" />
-                <ScalarProperty Name="etat" ColumnName="etat" />
-                <ScalarProperty Name="logos" ColumnName="logos" />
-                <ScalarProperty Name="telephone" ColumnName="telephone" />
-                <ScalarProperty Name="RC" ColumnName="RC" />
-                <ScalarProperty Name="sigle" ColumnName="sigle" />
-                <ScalarProperty Name="date_creation" ColumnName="date_creation" />
-                <ScalarProperty Name="facebook" ColumnName="facebook" />
-                <ScalarProperty Name="whatshapp" ColumnName="whatshapp" />
-                <ScalarProperty Name="adresse" ColumnName="adresse" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="role">
             <EntityTypeMapping TypeName="cimimanageModel.role">
               <MappingFragment StoreEntitySet="role">
@@ -1028,6 +1006,27 @@
                 <ScalarProperty Name="type_client" ColumnName="type_client" />
                 <ScalarProperty Name="type_personne" ColumnName="type_personne" />
                 <ScalarProperty Name="adresse" ColumnName="adresse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pompe_funeble">
+            <EntityTypeMapping TypeName="cimimanageModel.pompe_funeble">
+              <MappingFragment StoreEntitySet="pompe_funeble">
+                <ScalarProperty Name="adresse" ColumnName="adresse" />
+                <ScalarProperty Name="whatshapp" ColumnName="whatshapp" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="date_creation" ColumnName="date_creation" />
+                <ScalarProperty Name="sigle" ColumnName="sigle" />
+                <ScalarProperty Name="RC" ColumnName="RC" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="logos" ColumnName="logos" />
+                <ScalarProperty Name="etat" ColumnName="etat" />
+                <ScalarProperty Name="statut" ColumnName="statut" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="NIF" ColumnName="NIF" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nom_pompe" ColumnName="nom_pompe" />
+                <ScalarProperty Name="id_pompe" ColumnName="id_pompe" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

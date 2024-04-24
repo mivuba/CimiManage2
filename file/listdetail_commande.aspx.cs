@@ -13,7 +13,7 @@ namespace CimiManage.file
     {
         detail_com_classe dcm = new detail_com_classe();
         IDetail_com obj = new Detail_comImp();
-        int info;
+        //int info;
         protected void Page_Load(object sender, EventArgs e)
         {
 

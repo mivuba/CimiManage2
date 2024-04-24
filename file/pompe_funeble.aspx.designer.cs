@@ -24,13 +24,13 @@ namespace CimiManage.file
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Contrôle textnomp.
+        /// Contrôle Dppompe.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textnomp;
+        protected global::System.Web.UI.WebControls.DropDownList Dppompe;
 
         /// <summary>
         /// Contrôle Label2.
@@ -132,13 +132,13 @@ namespace CimiManage.file
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// Contrôle textlog.
+        /// Contrôle FileUpload1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textlog;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
 
         /// <summary>
         /// Contrôle Label8.

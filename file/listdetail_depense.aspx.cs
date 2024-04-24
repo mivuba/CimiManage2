@@ -13,7 +13,7 @@ namespace CimiManage.file
     {
         detail_depense_classe dp = new detail_depense_classe();
         IDetail_depense obj = new Detail_depenseImp();
-        int info;
+        // int info;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

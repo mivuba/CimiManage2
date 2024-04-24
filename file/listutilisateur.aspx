@@ -77,7 +77,7 @@
     <asp:TemplateField HeaderText="ACTION">
         <ItemTemplate>
             <asp:Button  runat="server" Text="editer"  CommandName="edit" CommandArgument='<%# Eval("id_ut") %>'/>
-            <asp:Button  runat="server" Text="supprimer" CommandName="sup" CommandArgument='<%# Eval("id_ut") %>' />
+            <asp:Button  runat="server" Text="supprimer" CommandName="sup" CommandArgument='<%# Eval("id_ut") %>'/>
         </ItemTemplate>
     </asp:TemplateField>
 

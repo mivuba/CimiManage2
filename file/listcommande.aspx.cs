@@ -13,7 +13,7 @@ namespace CimiManage.file
     {
         commande_classe cm = new commande_classe();
         ICommande obj = new CommandeImp();
-        int info;
+        //int info;
         protected void Page_Load(object sender, EventArgs e)
         {
 

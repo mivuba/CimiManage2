@@ -33,10 +33,10 @@ namespace CimiManage.Models
         public virtual DbSet<intitule_produit> intitule_produit { get; set; }
         public virtual DbSet<menu> menu { get; set; }
         public virtual DbSet<personnes> personnes { get; set; }
-        public virtual DbSet<pompe_funeble> pompe_funeble { get; set; }
         public virtual DbSet<role> role { get; set; }
         public virtual DbSet<service> service { get; set; }
         public virtual DbSet<type_depense> type_depense { get; set; }
         public virtual DbSet<utilisateur> utilisateur { get; set; }
+        public virtual DbSet<pompe_funeble> pompe_funeble { get; set; }
     }
 }

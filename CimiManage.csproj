@@ -176,10 +176,10 @@
     <Content Include="file\listdetail_commande.aspx" />
     <Content Include="file\listdetail_depense.aspx" />
     <Content Include="file\listdroit_menu.aspx" />
-    <Content Include="file\listepompe_funeble.aspx" />
     <Content Include="file\listintitule_produit.aspx" />
     <Content Include="file\listmenu.aspx" />
     <Content Include="file\listpersonne.aspx" />
+    <Content Include="file\listpompe_funeble.aspx" />
     <Content Include="file\listrole.aspx" />
     <Content Include="file\listservice.aspx" />
     <Content Include="file\listtype_depense.aspx" />
@@ -420,13 +420,6 @@
     <Compile Include="file\listdroit_menu.aspx.designer.cs">
       <DependentUpon>listdroit_menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="file\listepompe_funeble.aspx.cs">
-      <DependentUpon>listepompe_funeble.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="file\listepompe_funeble.aspx.designer.cs">
-      <DependentUpon>listepompe_funeble.aspx</DependentUpon>
-    </Compile>
     <Compile Include="file\listintitule_produit.aspx.cs">
       <DependentUpon>listintitule_produit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -447,6 +440,13 @@
     </Compile>
     <Compile Include="file\listpersonne.aspx.designer.cs">
       <DependentUpon>listpersonne.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\listpompe_funeble.aspx.cs">
+      <DependentUpon>listpompe_funeble.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\listpompe_funeble.aspx.designer.cs">
+      <DependentUpon>listpompe_funeble.aspx</DependentUpon>
     </Compile>
     <Compile Include="file\listrole.aspx.cs">
       <DependentUpon>listrole.aspx</DependentUpon>
@@ -607,6 +607,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="photos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

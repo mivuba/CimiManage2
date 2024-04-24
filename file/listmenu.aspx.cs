@@ -13,7 +13,7 @@ namespace CimiManage.file
     {
         menu_classe mn = new menu_classe();
         IMenu obj = new MenuImp();
-        int info;
+        // int info;
         protected void Page_Load(object sender, EventArgs e)
         {
 

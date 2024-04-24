@@ -3,6 +3,7 @@ using CimiManage.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
@@ -117,7 +118,7 @@ namespace CimiManage.Controllers
                 pm.code = p.code;
                 pm.statut = p.statut;
                 pm.etat = p.etat;
-                pm.logos = p.logos;
+               //pm.logos = p.logos;
                 pm.telephone = p.telephone;
                 pm.RC = p.RC;
                 pm.sigle = p.sigle;
@@ -168,11 +169,25 @@ namespace CimiManage.Controllers
                 if (con.Entry(p).State == EntityState.Detached)
                     con.pompe_funeble.Attach(p);
                 con.pompe_funeble.Remove(p);
+
                 con.SaveChanges();
                 return r = 1;
 
 
             }
+        }
+
+        public string UploadPhoto(FileUpload fileUpload)
+        {
+            if (fileUpload.HasFile)
+            {
+                string filename = Guid.NewGuid().ToString() + Path.GetExtension(fileUpload.FileName);
+                string filePath = HttpContext.Current.Server.MapPath("~/photos/") + filename;
+                fileUpload.SaveAs(filePath);
+                return "/photos/" + filename;
+            }
+            return null;
+
         }
     }
 }

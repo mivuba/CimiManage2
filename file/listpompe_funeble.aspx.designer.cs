@@ -11,7 +11,7 @@ namespace CimiManage.file
 {
 
 
-    public partial class listepompe_funeble
+    public partial class listpompe_funeble
     {
 
         /// <summary>

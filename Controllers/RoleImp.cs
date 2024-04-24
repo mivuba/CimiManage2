@@ -15,7 +15,7 @@ namespace CimiManage.Controllers
     {
         role r = new role();
         int b;
-        private int id;
+        // private int id;
         public int Ajout(role_classe rl)
         {
             using (connection con = new connection())
@@ -132,7 +132,6 @@ namespace CimiManage.Controllers
                 con.role.Remove(r);
                 con.SaveChanges();
                 return b = 1;
-
 
             }
         }

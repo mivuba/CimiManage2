@@ -19,36 +19,40 @@ namespace CimiManage.file
         string code;
         protected void Page_Load(object sender, EventArgs e)
         {
-            code = Request.QueryString["id_pompe"];//recuperation de l'id
+           //recuperation de l'id
+
+            code = Request.QueryString["id_pompe"];
             if (!IsPostBack)
             {
                 if (code != null)
                 {
-                    btnpmp.Text = "Modifier  pompe_funeble";
+                    btnpmp.Text = "Modifier  pompe";
                     afficher();
                 }
                 else
                 {
-                    btnpmp.Text = "Ajouter pompe_funeble";
+                    btnpmp.Text = "Ajouter pompe";
                 }
             }
-
         }
-        void ajout() {
 
-            if (textnomp.Text == "")
+        void ajout()
+        {
+
+            if (Dppompe.SelectedValue == "")
             {
                 msg.Text = "veuillez saisir le nom de la pompe_funeble";
             }
             else
             {
-                pmp.nom_pompe = textnomp.Text;//affectation
+                //affectation pmp.nom_pompe = textnomp.Text;
+                pmp.nom_pompe = Dppompe.SelectedValue;//affectation
                 pmp.email = textml.Text;
                 pmp.NIF = textnf.Text;
                 pmp.code = textcd.Text;
                 pmp.statut = textstat.Text;
                 pmp.etat = textet.Text;
-                pmp.logos = textlog.Text;
+                pmp.logos = obj.UploadPhoto(FileUpload1);
                 pmp.telephone = Convert.ToInt32(texttelp.Text);
                 pmp.RC = textrc.Text;
                 pmp.sigle = textsgl.Text;
@@ -61,7 +65,7 @@ namespace CimiManage.file
                 if (info == 1)
                 {
                     msg.Text = "Enregistrement reussi";
-                    textnomp.Text = "";
+                    // textnomp.Text = "";
                     // Response.Redirect("~/File/listepompe_funeble.aspx");
 
                 }
@@ -74,16 +78,18 @@ namespace CimiManage.file
             }
 
         }
+
         void afficher()
         {
             obj.Display(pmp, Convert.ToInt32(code));
-            textnomp.Text = pmp.nom_pompe;
+            // textnomp.Text = pmp.nom_pompe;
+            Dppompe.SelectedValue = pmp.nom_pompe;
             textml.Text = pmp.email;
             textnf.Text = pmp.NIF;
             textcd.Text = pmp.code;
             textstat.Text = pmp.statut;
             textet.Text = pmp.etat;
-            textlog.Text = pmp.logos;
+            // FileUpload1.Text = pmp.logos;
             textrc.Text = pmp.RC;
             textsgl.Text = pmp.sigle;
             textdatcr.Text = pmp.date_creation;
@@ -95,19 +101,20 @@ namespace CimiManage.file
         void modifierData()
         {
 
-            if (textnomp.Text == "")
+            if (Dppompe.SelectedValue == "")
             {
                 msg.Text = "veuillez saisir le nom de la pompe_funeble";
             }
             else
             {
-                pmp.nom_pompe = textnomp.Text;//affectation
+                // pmp.nom_pompe = textnomp.Text;//affectation
+                pmp.nom_pompe = Dppompe.SelectedValue;
                 pmp.email = textml.Text;
                 pmp.NIF = textnf.Text;
                 pmp.code = textcd.Text;
                 pmp.statut = textstat.Text;
                 pmp.etat = textet.Text;
-                pmp.logos = textlog.Text;
+                // pmp.logos = textlog.Text;
                 pmp.telephone = Convert.ToInt32(texttelp.Text);
                 pmp.RC = textrc.Text;
                 pmp.sigle = textsgl.Text;
@@ -121,7 +128,7 @@ namespace CimiManage.file
                 {
 
 
-                    Response.Redirect("~/File/listepompe_funeble.aspx");
+                    Response.Redirect("~/File/listpompe_funeble.aspx");
                 }
                 else
                     msg.Text = "Modification echoue";
@@ -129,7 +136,8 @@ namespace CimiManage.file
         }
         protected void btnpmp_Click(object sender, EventArgs e)
         {
-            if (code == null) {
+            if (code == null)
+            {
 
                 ajout();
             }

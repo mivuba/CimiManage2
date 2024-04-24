@@ -13,7 +13,7 @@ namespace CimiManage.file
     {
         type_depense_classe td = new type_depense_classe();
         IType_depense it = new Type_depenseImp();
-        int info;
+        //int info;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

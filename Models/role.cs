@@ -27,8 +27,8 @@ namespace CimiManage.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<droit_menu> droit_menu { get; set; }
-        public virtual pompe_funeble pompe_funeble { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<utilisateur> utilisateur { get; set; }
+        public virtual pompe_funeble pompe_funeble { get; set; }
     }
 }

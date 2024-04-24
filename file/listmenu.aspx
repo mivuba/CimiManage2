@@ -25,7 +25,7 @@
     </ItemTemplate>
 </asp:TemplateField>
 
-    <asp:TemplateField HeaderText="">
+    <asp:TemplateField HeaderText="ACTION">
     <ItemTemplate>
         <asp:Button  runat="server" Text="editer" CommandName="edit" CommandArgument='<%# Eval("id_menu")%>' />
     </ItemTemplate>

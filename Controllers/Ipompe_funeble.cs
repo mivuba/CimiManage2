@@ -14,7 +14,8 @@ namespace CimiManage.Controllers
         void ChargerList(GridView gdv);
         void Display(pompe_funeble_classe pm, int id);
         int Modify(pompe_funeble_classe pmpe, int id);
-        int Supprimer(int id);
         void ChargerPomp(DropDownList dp);
+        string UploadPhoto(FileUpload fileUpload);
+        int Supprimer(int id);
     }
 }

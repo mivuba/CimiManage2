@@ -13,7 +13,7 @@ namespace CimiManage.file
     {
         droit_menu_classe dr = new droit_menu_classe();
         IDroit_menu obj = new Droit_menuImp();
-        int info;
+        //int info;
         protected void Page_Load(object sender, EventArgs e)
         {
 

@@ -1,0 +1,1 @@
+﻿alter table pompe_funeble alter column logos Text; 

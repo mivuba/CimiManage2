@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace CimiManage.file
 {
-    public partial class listepompe_funeble : System.Web.UI.Page
+    public partial class listpompe_funeble : System.Web.UI.Page
     {
         pompe_funeble_classe pm = new pompe_funeble_classe();
         Ipompe_funeble obj = new pompe_funebleImp();
@@ -20,7 +20,7 @@ namespace CimiManage.file
             {
                 getData();
             }
-
+                
         }
         void getData()
         {
@@ -29,11 +29,10 @@ namespace CimiManage.file
 
         protected void gdv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
             int index = Convert.ToInt32(e.CommandArgument);//recuperation de l'argument
             if (e.CommandName == "edit")
             {//modification
-                Response.Redirect("~/File/pompe_funeble.aspx?id_pompe=" + index);
+                Response.Redirect("~/File/pompe_funeble.aspx?id_pompe="+index);
             }
             if (e.CommandName == "sup")
             {
@@ -41,7 +40,7 @@ namespace CimiManage.file
 
                 if (info == 1)
 
-                    Response.Redirect("~/File/listepompe_funeble.aspx");
+                    Response.Redirect("~/File/listpompe_funeble.aspx");
 
             }
         }
