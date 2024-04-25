@@ -46,7 +46,7 @@ namespace CimiManage.Controllers
 
                     ListItem item0 = new ListItem();
                     item0.Value = "-1";
-                    item0.Text = "Selectionne la personnes";
+                    item0.Text = "Selectionne le produit";
                     dp.Items.Add(item0);
                     foreach (var data in obj)
                     {

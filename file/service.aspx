@@ -15,7 +15,15 @@
 
 
     <asp:Label ID="Label1" runat="server" Text="nom_service"></asp:Label>
-    <asp:TextBox ID="txtnv" runat="server"></asp:TextBox>
+   <!-- <asp:TextBox ID="txtnv" runat="server"></asp:TextBox>-->
+
+    <asp:DropDownList ID="Dpservice" runat="server">
+        <asp:ListItem Value="">Selectionner le nom de la service</asp:ListItem>
+        <asp:ListItem Value="faire des cerceuille"></asp:ListItem>
+        <asp:ListItem Value="decord fleure"></asp:ListItem>
+        <asp:ListItem Value="conscriction des tombe"></asp:ListItem>
+        <asp:ListItem Value="voiture"></asp:ListItem>
+    </asp:DropDownList>
 
      <asp:Label ID="Label2" runat="server" Text="prix_service"></asp:Label>
  <asp:TextBox ID="txtps" runat="server"></asp:TextBox>

@@ -46,7 +46,7 @@ namespace CimiManage.file
         }
         void ajout()
         {
-            if (Dpnmp.SelectedValue == "-1" || Dpnp.SelectedValue == "-1" || txtnv.Text == "")
+            if (Dpnmp.SelectedValue == "-1" || Dpnp.SelectedValue == "-1" || Dpservice.SelectedValue == "")
             {
                 msg.Text = "Remplissez tous les chants";
             }
@@ -56,7 +56,8 @@ namespace CimiManage.file
 
                 sv.id_pompe = Convert.ToInt32(Dpnmp.SelectedValue);
                 sv.id_produit = Convert.ToInt32(Dpnp.SelectedValue);
-                sv.nom_service = txtnv.Text;
+                //sv.nom_service = txtnv.Text;
+                sv.nom_service = Dpservice.SelectedValue;
                 sv.prix_service = txtps.Text;
                 sv.longitude = txtlg.Text;
                 sv.altitude = txtalt.Text;
@@ -86,7 +87,7 @@ namespace CimiManage.file
             Dpnmp.SelectedValue = sv.id_pompe.ToString();
             Dpnp.SelectedValue = sv.id_produit.ToString();
 
-            txtnv.Text = sv.nom_service;
+            Dpservice.SelectedValue = sv.nom_service;
             txtps.Text = sv.prix_service;
             txtlg.Text = sv.longitude;
             txtalt.Text = sv.altitude;
@@ -98,7 +99,7 @@ namespace CimiManage.file
 
             if (code != null)
             {
-                if (Dpnmp.SelectedValue == "-1" || Dpnp.SelectedValue == "-1" || txtnv.Text == "")
+                if (Dpnmp.SelectedValue == "-1" || Dpnp.SelectedValue == "-1" || Dpservice.SelectedValue == "")
                 {
                     msg.Text = "Remplissez tous les chants";
                 }
@@ -107,7 +108,7 @@ namespace CimiManage.file
 
                     sv.id_pompe = Convert.ToInt32(Dpnmp.SelectedValue);
                     sv.id_produit = Convert.ToInt32(Dpnp.SelectedValue);
-                    sv.nom_service = txtnv.Text;
+                    sv.nom_service = Dpservice.SelectedValue;
                     sv.prix_service = txtps.Text;
                     sv.longitude = txtlg.Text;
                     sv.altitude = txtalt.Text;
