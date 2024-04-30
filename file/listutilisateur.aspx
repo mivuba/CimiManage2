@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:GridView ID="gdv" runat="server" AutoGenerateColumns="false" OnRowCommand="gdv_RowCommand">
+    <asp:GridView ID="gdv" CssClass="table table-striped table-bordered table-responsive" runat="server" AutoGenerateColumns="false" OnRowCommand="gdv_RowCommand">
 
 <Columns>
 

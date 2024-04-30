@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="gdv" runat="server" AutoGenerateColumns="false" OnRowCommand="gvd_RowCommand">
+    <asp:GridView ID="gdv" runat="server" CssClass="table table-striped table-bordered table-responsive" AutoGenerateColumns="false" OnRowCommand="gvd_RowCommand">
 
         <Columns>
 

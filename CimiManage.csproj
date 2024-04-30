@@ -165,6 +165,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="file\acceuil.aspx" />
     <Content Include="file\commande.aspx" />
     <Content Include="file\depense.aspx" />
     <Content Include="file\detailcommande.aspx" />
@@ -184,6 +185,7 @@
     <Content Include="file\listservice.aspx" />
     <Content Include="file\listtype_depense.aspx" />
     <Content Include="file\listutilisateur.aspx" />
+    <Content Include="file\login.aspx" />
     <Content Include="file\menu.aspx" />
     <Content Include="file\personne.aspx" />
     <Content Include="file\pompe_funeble.aspx" />
@@ -238,6 +240,7 @@
       <DependentUpon>cimimanage.edmx</DependentUpon>
     </Content>
     <Content Include="file\cimimanage.Master" />
+    <Content Include="file\logmast.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -335,6 +338,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\acceuil.aspx.cs">
+      <DependentUpon>acceuil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\acceuil.aspx.designer.cs">
+      <DependentUpon>acceuil.aspx</DependentUpon>
     </Compile>
     <Compile Include="file\cimimanage.Master.cs">
       <DependentUpon>cimimanage.Master</DependentUpon>
@@ -475,6 +485,20 @@
     </Compile>
     <Compile Include="file\listutilisateur.aspx.designer.cs">
       <DependentUpon>listutilisateur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="file\logmast.Master.cs">
+      <DependentUpon>logmast.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="file\logmast.Master.designer.cs">
+      <DependentUpon>logmast.Master</DependentUpon>
     </Compile>
     <Compile Include="file\menu.aspx.cs">
       <DependentUpon>menu.aspx</DependentUpon>

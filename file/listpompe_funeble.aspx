@@ -3,10 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:GridView ID="gdv" runat="server" AutoGenerateColumns="false" OnRowCommand="gdv_RowCommand">
+  <%--<asp:Label id="msg" class="btn btn-outline-danger" runat="server" />--%>
+
+       <%-- <h1 id="msg" class="btn btn-outline-danger" runat="server"></h1>--%>
+
+    <asp:GridView ID="gdv" CssClass="table table-striped table-bordered table-responsive" runat="server" AutoGenerateColumns="false" OnRowCommand="gdv_RowCommand">
 <Columns>
 
-    <asp:TemplateField HeaderText="nom_pompe">
+  <asp:TemplateField HeaderText="nom_pompe">
         <ItemTemplate>
             <asp:Label ID="lblnp" runat="server" Text='<%# Eval("nom_p")%>'></asp:Label>
         </ItemTemplate>
@@ -97,7 +101,7 @@
 
             <asp:TemplateField HeaderText="ACTION">
     <ItemTemplate>
-        <asp:Button  runat="server" Text="editer" CommandName="edit" CommandArgument='<%# Eval("id_pompe")%>'/>
+        <asp:Button  runat="server" Text="editer" CommandName="edit" CommandArgument='<%# Eval("id_pompe")%>' OnClientClick="return confirm('r to editer')"/>
 
         <asp:Button runat="server" Text="supprimer" CommandName="sup" CommandArgument='<%# Eval("id_pompe")%>'/>
     </ItemTemplate>

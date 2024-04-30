@@ -84,6 +84,28 @@ namespace CimiManage.Controllers
             }
         }
 
+        public int Connect(personnes_classe log, string usersnm, string pswd)
+        {
+            using (connection con = new connection())
+            {
+                p = con.personnes.Where(x => x.user_name == usersnm && x.password == pswd && x.etat == "1").FirstOrDefault();
+
+                if (p != null)
+                {
+                    log.id_pers = p.id_pers;
+              
+                    log.user_name = p.user_name;
+                    log.password = p.password;
+                    log.etat = p.etat;
+          
+                    
+                    return r = 1;
+                }
+                else return r = 0;
+
+            }
+        }
+
         public void Display(personnes_classe prs, int id)
         {
             using (connection con = new connection())

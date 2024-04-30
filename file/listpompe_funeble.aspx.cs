@@ -36,12 +36,14 @@ namespace CimiManage.file
             }
             if (e.CommandName == "sup")
             {
+                
                 info = obj.Supprimer(index);
 
                 if (info == 1)
 
                     Response.Redirect("~/File/listpompe_funeble.aspx");
-
+                //else
+                //    msg.Text = "no";
             }
         }
     }

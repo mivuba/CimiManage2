@@ -16,5 +16,6 @@ namespace CimiManage.Controllers
         int Modify(personnes_classe ps, int id);
         int Supprimer(int id);
         void ChargerPers(DropDownList dp);
+        int Connect(personnes_classe log, string usersnm, string pswd);
     }
 }
